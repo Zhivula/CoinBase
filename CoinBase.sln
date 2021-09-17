@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinBase", "CoinBase\CoinBase.csproj", "{B325E88D-F0CA-446B-9DD1-70DE275B411C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B325E88D-F0CA-446B-9DD1-70DE275B411C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B325E88D-F0CA-446B-9DD1-70DE275B411C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B325E88D-F0CA-446B-9DD1-70DE275B411C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B325E88D-F0CA-446B-9DD1-70DE275B411C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3193DCE-47E3-46FC-A7C4-8FE0C008659E}
+	EndGlobalSection
+EndGlobal
