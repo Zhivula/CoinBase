@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CoinBase.Data;
+using CoinBase.DataBase;
 using System.Windows;
 
 namespace CoinBase
@@ -13,5 +9,12 @@ namespace CoinBase
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            CoinGecko.UpDateList();
+            using (var context = new MyDbContext())
+            {
+            }
+        }
     }
 }

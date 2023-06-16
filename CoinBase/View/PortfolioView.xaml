@@ -1,0 +1,219 @@
+﻿<UserControl x:Class="CoinBase.View.PortfolioView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:CoinBase.View"
+             xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
+             xmlns:oxy1="http://oxyplot.org/wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="PortfolioGrid">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                <GradientStopCollection>
+                    <GradientStop Offset="0" Color="#17171a"/>
+                    <GradientStop Offset="1" Color="#222531"/>
+                    <GradientStop Offset="2" Color="#222531"/>
+                    <GradientStop Offset="3" Color="#222531"/>
+                </GradientStopCollection>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Top">
+                            <Button Background="Transparent" BorderThickness="0" Foreground="White" Margin="5" Command="{Binding Button7dCommand}">
+                                <Border Background="Gray" CornerRadius="5" Padding="10 2">
+                                    <TextBlock Text="7d"/>
+                                </Border>
+                            </Button>
+                            <Button Background="Transparent" BorderThickness="0" Foreground="White" Margin="5" Command="{Binding Button30dCommand}">
+                                <Border Background="Gray" CornerRadius="5" Padding="10 2">
+                                    <TextBlock Text="30d"/>
+                                </Border>
+                            </Button>
+                            <Button Background="Transparent" BorderThickness="0" Foreground="White" Margin="5" Command="{Binding Button60dCommand}">
+                                <Border Background="Gray" CornerRadius="5" Padding="10 2">
+                                    <TextBlock Text="60d"/>
+                                </Border>
+                            </Button>
+                            <Button Background="Transparent" BorderThickness="0" Foreground="White" Margin="5" Command="{Binding Button90dCommand}">
+                                <Border Background="Gray" CornerRadius="5" Padding="10 2">
+                                    <TextBlock Text="90d"/>
+                                </Border>
+                            </Button>
+                            <Button Background="Transparent" BorderThickness="0" Foreground="White" Margin="5" Command="{Binding Button1YCommand}">
+                                <Border Background="Gray" CornerRadius="5" Padding="10 2">
+                                    <TextBlock Text="1Y"/>
+                                </Border>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    <oxy:PlotView Background="Transparent" Model="{Binding Plot}" BorderThickness="0" Grid.Row="1">
+                        <!--<oxy:PlotView.TrackerDefinitions>
+                            <oxy1:TrackerDefinition TrackerKey="LineSeriesXyzTrackerKey">
+                                <oxy:TrackerDefinition.TrackerTemplate>
+                                    <ControlTemplate>
+                                        -->
+                        <!-- Put your content here-->
+                        <!--
+                                    </ControlTemplate>
+                                </oxy:TrackerDefinition.TrackerTemplate>
+                            </oxy1:TrackerDefinition>
+                        </oxy:PlotView.TrackerDefinitions>-->
+                    </oxy:PlotView>
+                    <!--<Polyline Points="{Binding Points.Points}" Stroke="Red" Margin="10">
+                        <Polyline.Effect>
+                            <DropShadowEffect Direction="50" ShadowDepth="5" Color="White"/>
+                        </Polyline.Effect>
+                    </Polyline>-->
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel Margin="20">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Current Balance" Style="{StaticResource TextBlock}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Balance}" FontSize="30" FontFamily="Sеgoe UI Black" Foreground="White"/>
+                                <Border CornerRadius="5" Background="{Binding BalanceProfitForeground}" VerticalAlignment="Center" Margin="15 0 0 0">
+                                    <TextBlock Text="{Binding PercentChange}" Foreground="White" Margin="5"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                        <!--<TextBlock Text="{Binding Balance}" Foreground="White" FontFamily="Segoe UI Black" FontSize="30"/>-->
+                        <Border Background="Transparent" CornerRadius="10" Margin="10 30 10 10" BorderBrush="White" BorderThickness="2">
+                            <Button Background="Transparent" Command="{Binding StatisticsCommand}" BorderBrush="Transparent" Style="{x:Null}">
+                                <WrapPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="ChartArc" Height="20" Width="20" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="0 1 0 0"/>
+                                    <TextBlock Text="Statistics" Margin="10 5 0 5" FontSize="20" FontFamily="Segoe UI Black" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+                                </WrapPanel>
+                            </Button>
+                        </Border>
+                        <Border Background="Transparent" CornerRadius="10" Margin="10" BorderBrush="White" BorderThickness="2">
+                            <Button Background="Transparent" Command="{Binding AddNewCommand}" BorderBrush="Transparent" Style="{x:Null}">
+                                <WrapPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Plus" Height="20" Width="20" HorizontalAlignment="Left" Foreground="White" VerticalAlignment="Center" Margin="0 2 0 0"/>
+                                    <TextBlock Text="Add New" Margin="10 5 0 5" HorizontalAlignment="Left" FontSize="20" FontFamily="Segoe UI Black" VerticalAlignment="Center" Foreground="White"/>
+                                </WrapPanel>
+                            </Button>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Border BorderBrush="Gray" BorderThickness="0 1 0 1"/>
+                    <Grid Margin="10 0 0 0" VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.4*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Foreground="White" Text="Name"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBlock Foreground="White" Text="Price"/>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <TextBlock Foreground="White" Text="Balance"/>
+                        </Grid>
+                        <Grid Grid.Column="3">
+                            <TextBlock Foreground="White" Text="24H"/>
+                        </Grid>
+                        <Grid Grid.Column="4">
+                            <TextBlock Foreground="White" Text="Holdings"/>
+                        </Grid>
+                        <Grid Grid.Column="5">
+                            <TextBlock Foreground="White" Text="Avg.Buy Price"/>
+                        </Grid>
+                        <Grid Grid.Column="6">
+                            <TextBlock Foreground="White" Text="Actions" Height="16" Margin="0,0,-0.4,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <ScrollViewer Style="{StaticResource FavsScrollViewer}">
+                        <ListView ItemsSource="{Binding CoinList}" Background="Transparent" BorderThickness="0">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid MouseLeftButtonDown="CoinPortfolioViewCommand">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1.4*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="0.7*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="0.7*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Foreground="White" Content="{Binding Path=Transaction.Name}" Margin="0 0 5 0"/>
+                                                <Label Foreground="White" Content="{Binding Path=Symbol}"/>
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <Label Foreground="White" Content="{Binding Path=Price}"/>
+                                        </Grid>
+                                        <Grid Grid.Column="2">
+                                            <Label Foreground="White" Content="{Binding Path=Balance}"/>
+                                        </Grid>
+                                        <Grid Grid.Column="3">
+                                            <Label Foreground="{Binding Path=H24PercentColor}" Content="{Binding Path=H24}"/>
+                                        </Grid>
+                                        <Grid Grid.Column="4">
+                                            <Label Foreground="White" Content="{Binding Path=Transaction.Quantity}"/>
+                                        </Grid>
+                                        <Grid Grid.Column="5">
+                                            <Label Foreground="White" Content="{Binding Path=PricePerCoin}"/>
+                                        </Grid>
+                                        <Grid Grid.Column="6">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Background="Transparent" Command="{Binding AddMoreCoins}">
+                                                    <materialDesign:PackIcon Kind="Plus" Height="30" Width="30" Foreground="White"/>
+                                                </Button>
+                                                <Button Background="Transparent" Command="{Binding RemoveCoin}">
+                                                    <materialDesign:PackIcon Kind="Minus" Height="30" Width="30" Foreground="White"/>
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Grid>
+                <Grid Grid.RowSpan="2" x:Name="ChangeGridd">
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

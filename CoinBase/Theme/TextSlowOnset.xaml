@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CoinBase.Theme">
+    <Style BasedOn="{StaticResource {x:Type TextBlock}}"
+           TargetType="{x:Type TextBlock}"
+           x:Key="TextSlowOnset">
+        <Style.Setters>
+            <Setter Property="Foreground" Value="#f6fffa"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" 
+                                         BeginTime="0:0:0.5"
+                                         From="0"
+                                         To="1"
+                                         Duration="0:0:2"
+                                         FillBehavior="HoldEnd"/>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" 
+                                         BeginTime="0:0:0.5"
+                                         From="-25"
+                                         To="0"
+                                         Duration="0:0:2"
+                                         FillBehavior="HoldEnd"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

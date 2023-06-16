@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CoinBase
+namespace CoinBase.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для SmallListSearch.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SmallListSearch : UserControl
     {
-        public MainWindow()
+        public SmallListSearch()
         {
             InitializeComponent();
         }

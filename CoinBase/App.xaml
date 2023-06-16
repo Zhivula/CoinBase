@@ -2,8 +2,17 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CoinBase"
-             StartupUri="MainWindow.xaml">
+             StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/ArrowButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/TextSlowOnset.xaml"/>
+                <ResourceDictionary Source="/Theme/ListBoxItemPageViewStyle.xaml"/>
+                <ResourceDictionary Source="/Theme/Scroll.xaml"/>
+                <ResourceDictionary Source="/Theme/Statistics.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
